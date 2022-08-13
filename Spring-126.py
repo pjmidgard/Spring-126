@@ -41,6 +41,7 @@ class compression:
                     nac=len(nameas)
 
                     long=len(name)
+                   
 
                     
 
@@ -378,9 +379,10 @@ class compression:
                                     size_data11=add_bits118+size_data11
                                     
                                     
+                                  
+                                
                                     
-                                    
-                                    
+                                 
                                     
                                     
                                     n = int(size_data11, 2)
@@ -394,14 +396,12 @@ class compression:
                                     
                                     
                                     data2=jl
+                                    
+                                    size_after=len(jl)
+                                    #print(size_after)
 
-                                    if len(data2)<=len(data1):
-                                        jl=b'\x00'+data2
-                                       
-
-
-                                    elif len(data1)<=len(data2):
-                                        jl=b'\xff'+data1
+                                    import paq
+                                    jl=paq.compress(jl)
                                         
                                 
                                     size_after=len(jl)
@@ -501,14 +501,12 @@ class compression:
                         
                         data3 = binary_file.read()
 
-                        data=data3[1:]
+                        data=data3
 
                         
                         
-                        if data3[0:1]==b'\xff':
-                        	import brotlicffi
-                        	data= brotlicffi.decompress(data)
-                        data1=data
+                        import paq
+                        data=paq.decompress(data)
 
                         if len(data)==0:
                             x4=0.0
@@ -826,19 +824,13 @@ class compression:
                                     qqwslenf="%0"+qqwslenf+"x"
                              
                                     jl=binascii.unhexlify(qqwslenf % n)
-                                    if data3[0:1]==b'\x00':
-                                    	import brotlicffi
-                                    	jl= brotlicffi.decompress(jl)
+                                    
+                                    import brotlicffi
+                                    jl= brotlicffi.decompress(jl)
                                    
                                     
                                     data2=jl
 
-                                    if data3[0:1]==b'\xff':
-                                        jl=data1
-
-
-                                    elif data3[0:1]==b'\x00':
-                                        jl=data2
                                
                                     sssssw=len(jl) 
                                   
