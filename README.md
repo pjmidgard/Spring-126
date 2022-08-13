@@ -3,7 +3,7 @@ Spring-126
 
 Spring-126 Compression lossless
 
-Brotlicffi and Spring-126 or Brotlicffi
+Brotlicffi, Spring-126 and paq
 
 Algorithm Spring-126:
 
