@@ -109,7 +109,8 @@ class compression:
                         
                         Limit_size1=0
                         if lenf1==Deep_long_All_1:
-                        	 Limit_size1=1
+                        	  print("This filr too small")
+                        	  raise SystemExit
                         	
                         lenf5=len(data)
                         
@@ -365,11 +366,7 @@ class compression:
                                         
                                         
        
-                                    if Limit_size1==1:
-                                    	size_data11="0"+size_data_not_compress
-                                    	
-                                    elif Limit_size1==0:
-                                    	size_data11="1"+size_data11	
+                 
                                    
                                     	
                                     size_data11="1"+size_data11
@@ -616,18 +613,8 @@ class compression:
                                         size_data3=size_data3[2:]
                                     elif size_data3[0:1]=="1":
                                         size_data3=size_data3[1:]
-                                        
-                                    Limit_size2=0
-                                    size_data12=""
 
-                                    if size_data3[0:1]=="0":
-                                    	size_data12=size_data3[1:]
-                                    	Limit_size2=1
-                                    	
-                                    else: 
-                                    	size_data3=size_data3[1:]
-                                    	
-                                    	
+
                                     times_compression=0  
                                  
                                     long2=len(size_data3)
@@ -709,7 +696,7 @@ class compression:
                                                                                 Zeroes5=size_data3[block:block+blocks]
                                                                                 size_after2=len(Zeroes5)
 
-                                                                                if Times6>=Deep_long or size_after2!=long_block or  len(data)<=Deep_long_All:
+                                                                                if Times6>=Deep_long or size_after2!=long_block:
                                                                                     Zeroes4=size_data3[block:block+blocks]
                                                                                     size_after4=len(Zeroes4)
                                                                                     size_data4=Zeroes4
@@ -816,11 +803,6 @@ class compression:
                                     size_data9=size_data3
 
                                     size_data3=size_data9
-                                    
-                                    
-                                    if Limit_size2==1:
-                                    	size_data3=size_data12
-                                    	
                                     
 
                                        
