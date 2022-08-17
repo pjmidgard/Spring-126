@@ -624,8 +624,8 @@ class compression:
                                     	size_data12=size_data3[1:]
                                     	Limit_size2=1
                                     	
-                                   
-                                    size_data3=size_data3[1:]
+                                    else: 
+                                    	size_data3=size_data3[1:]
                                     	
                                     	
                                     times_compression=0  
