@@ -108,8 +108,8 @@ class compression:
                         lenf1=len(data)
                         
                         Limit_size1=0
-                        if lenf1==Deep_long_All_1:
-                        	  print("This filr too small")
+                        if lenf1<=Deep_long_All_1:
+                        	  print("This file too small")
                         	  raise SystemExit
                         	
                         lenf5=len(data)
