@@ -53,6 +53,7 @@ class compression:
                     Deep_long_All=Deep_long*16
                     block_size_long=16
                     Times_compression=1
+                    Deep_long_All_1=Deep_long*32
                     	
                     nameas=name+".bin"
                 
@@ -105,6 +106,11 @@ class compression:
                      
                        
                         lenf1=len(data)
+                        
+                        Limit_size1=0
+                        if lenf1==Deep_long_All_1:
+                        	 Limit_size1=1
+                        	
                         lenf5=len(data)
                         
                         assx=0
@@ -359,7 +365,13 @@ class compression:
                                         
                                         
        
-                                    
+                                    if Limit_size1==1:
+                                    	size_data11="0"+size_data_not_compress
+                                    	
+                                    elif Limit_size1==0:
+                                    	size_data11="1"+size_data11	
+                                   
+                                    	
                                     size_data11="1"+size_data11
                                     
                                     
@@ -466,7 +478,7 @@ class compression:
                     Deep_long_All=Deep_long*16
                     block_size_long=16
                     Times_compression=1
-                    	
+                    Deep_long_All_1=Deep_long*32	
                     
                     
                     nac=len(nameas)
@@ -604,8 +616,18 @@ class compression:
                                         size_data3=size_data3[2:]
                                     elif size_data3[0:1]=="1":
                                         size_data3=size_data3[1:]
+                                        
+                                    Limit_size2=0
+                                    size_data12=""
 
-
+                                    if size_data3[0:1]=="0":
+                                    	size_data12=size_data3[1:]
+                                    	Limit_size2=1
+                                    	
+                                   
+                                    size_data3=size_data3[1:]
+                                    	
+                                    	
                                     times_compression=0  
                                  
                                     long2=len(size_data3)
@@ -794,6 +816,11 @@ class compression:
                                     size_data9=size_data3
 
                                     size_data3=size_data9
+                                    
+                                    
+                                    if Limit_size2==1:
+                                    	size_data3=size_data12
+                                    	
                                     
 
                                        
